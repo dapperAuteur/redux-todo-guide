@@ -30,17 +30,15 @@ describe('<App />', () => {
         const wrapper = shallow(<App name="Test App" state={state}/>);
         
         it('renders an h1 tag', () => {
-            expect(wrapper).to.have.exactly(1).descendants('h1');
+            expect(wrapper.find('h1')).to.have.length(1);
         });
         
         it('renders name of application', () => {
             expect(wrapper).to.include.text("Test App");
         });
         
-        it('renders ItemList with items prop', () => {
-            expect(wrapper).to.have.exactly(1).descendants('ItemList');
-            expect(wrapper.find('ItemList').props()).to.include.key('items');
-            expect(wrapper.find('ItemList').props().items).not.to.be.an('undefined');
+        it('renders ItemListContainer', () => {
+            expect(wrapper.find('Connect(ItemList)')).to.have.length(1);
         });
     });
 });

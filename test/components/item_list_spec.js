@@ -13,12 +13,12 @@ const items = fromJS([
 describe('<ItemList />', () => {
     const wrapper = shallow(<ItemList items={items} />);
     it('renders Items with correct props', () => {
-        expect(wrapper).to.have.exactly(2).descendants('Item');
-        const firstItemProps = wrapper.find('Item').first().props();
+        expect(wrapper.find('Connect(Item)')).to.have.length(2);
+        const firstItemProps = wrapper.find('Connect(Item)').first().props();
         expect(firstItemProps).to.include.keys('content', 'complete');
         expect(firstItemProps.content).to.eq('test item 1');
         expect(firstItemProps.complete).to.eq(true);
-        const secondItemProps = wrapper.find('Item').last().props();
+        const secondItemProps = wrapper.find('Connect(Item)').last().props();
         /* WRITE A TEST HERE TO CHECK secondItemProps.content */
         /* WRITE A TEST HERE TO CHECK secondItemProps.complete */
     });

@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import { Map, fromJS } from 'immutable';
 
 import { reducer } from '../src/reducer.js';
+import { toggleItem } from '../src/action_creators';
 
 describe("reducer()", () => {
     it('returns empty Map if currentState is undefined', () => {
@@ -15,7 +16,7 @@ describe("reducer()", () => {
                 { id: 2, complete: true } 
             ]
         });
-        const action = { type: "TOGGLE_ITEM", id: 3 };
+        const action = toggleItem(3);
         
         const nextState = reducer(currentState, action);
         
@@ -26,6 +27,5 @@ describe("reducer()", () => {
         it('does not change complete for other items', () => {
             expect(nextState.getIn(['items', 1, 'complete'])).to.eq(true);
         });
-        
     });
 });
