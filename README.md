@@ -1,10 +1,23 @@
-## Packages Included
+## Getting started
+
+This is the repository for the React-Redux guide posted here:
+
+[https://eloquent.ly/guides/es6-react-redux](https://eloquent.ly/guides/es6-react-redux).
+
+To get started, clone this repository and checkout the 'basic_components' branch:
+
+```
+git clone https://github.com/eloquently/redux-todo-guide.git
+git checkout basic_components
+```
+
+## Tools Used
 
 Build: Webpack, Babel (es2015 and React), Sass loaders, webpack-dev-server
 
 Test: Mocha, Chai, Enzyme
 
-Front-end: React, React-Dom
+Front-end: React, React-Dom, Redux
 
 ## How to Run Things
 
