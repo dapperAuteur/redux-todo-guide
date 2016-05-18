@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { fromJS } from 'immutable';
 
 import { App } from './components/app';
 
 // Add CSS files to bundle
 require('../src/css/application.scss');
 
-const state = {
+const state = fromJS({
     items: [
         {
             id: 1,
@@ -24,7 +25,7 @@ const state = {
             complete: false
         }
     ]
-};
+});
 
 // Render application to DOM
 ReactDOM.render(

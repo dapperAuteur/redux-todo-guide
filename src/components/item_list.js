@@ -7,7 +7,9 @@ export class ItemList extends React.Component {
         return (
             <div className="item-list">
                 { this.props.items.map( (i) => 
-                    <Item key={i.id} content={i.content} complete={i.complete} />
+                    <Item key={i.get('id')} 
+                          content={i.get('content')} 
+                          complete={i.get('complete')} />
                 )}
             </div>
         );

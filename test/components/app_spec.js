@@ -1,10 +1,11 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
+import { fromJS } from 'immutable';
 
 import { App } from '../../src/components/app';
 
-const state = {
+const state = fromJS({
     items: [
         {
             id: 1,
@@ -22,9 +23,9 @@ const state = {
             complete: false
         }
     ]
-};
+});
 
-describe('<App>', () => {
+describe('<App />', () => {
     describe('render()', () => {
         const wrapper = shallow(<App name="Test App" state={state}/>);
         
@@ -34,6 +35,12 @@ describe('<App>', () => {
         
         it('renders name of application', () => {
             expect(wrapper).to.include.text("Test App");
+        });
+        
+        it('renders ItemList with items prop', () => {
+            expect(wrapper).to.have.exactly(1).descendants('ItemList');
+            expect(wrapper.find('ItemList').props()).to.include.key('items');
+            expect(wrapper.find('ItemList').props().items).not.to.be.an('undefined');
         });
     });
 });

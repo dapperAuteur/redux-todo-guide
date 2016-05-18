@@ -7,8 +7,8 @@ export class App extends React.Component {
         return (
             <div className="app">
                 <h1>{ this.props.name }</h1>
-                <ItemList items={ this.props.state.items } />
+                <ItemList items={ this.props.state.get('items') } />
             </div>
         );
     }
-};
+}
